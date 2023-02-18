@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web APIs Challenge: Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="header-link">View Highscores</a>
+      <!-- <nav>Time: 75</nav> -->
+      <nav id="time">Time: 0</nav>
+    </header>
+    <main>
+      <div class="container">
+        <section class="slide" id="start">
+          <h1>Coding Quiz Challenge</h1>
+          <p>
+            Try to answer the following code-related questions within the time
+            limit. Keep in mind that incorrect answers will penalize your
+            score/time by ten seconds!
+          </p>
+          <button id="start">Start Quiz</button>
+        </section>
+        <section class="slide" id="questions">
+          <h1>Commonly used data types DO not inlcude:</h1>
+          <div id="buttons">
+            <button id="answer1" onclick="question1Check(1)">1. strings</button>
+            <button id="answer2" onclick="question1Check(2)">2. booleans</button>
+            <button id="answer3" onclick="question1Check(3)">3. alerts</button>
+            <button id="answer4" onclick="question1Check(4)">4. numbers</button>
+          </div>
+        </section>
+        <section class="slide" id="questions">
+          <h1>Blah:</h1>
+          <div id="buttons">
+            <button id="answer1" onclick="question1Check(1)">1. strings</button>
+            <button id="answer2" onclick="question1Check(2)">2. booleans</button>
+            <button id="answer3" onclick="question1Check(3)">3. alerts</button>
+            <button id="answer4" onclick="question1Check(4)">4. numbers</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>

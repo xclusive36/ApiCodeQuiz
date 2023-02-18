@@ -1,0 +1,75 @@
+:root {
+  --nav-color: #ffffff;
+  --nav-background-color: #31343d;
+  --avatar-background-color: #b9c6ae;
+  --work-background-color: #f3f3f3;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f3f3f3;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+section {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  width: 535px;
+}
+
+section h1 {
+  font-size: 2em;
+  font-weight: 600;
+  color: #31343d;
+}
+
+section p {
+  font-size: 1em;
+  font-weight: 400;
+  color: #31343d;
+  margin: 1em;
+  text-align: center;
+}
+
+button {
+  background-color: #620f89;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  margin: .5em;
+}
+
+#start {
+  text-align: center;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 200px;
+}
