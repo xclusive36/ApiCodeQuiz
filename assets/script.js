@@ -1,9 +1,13 @@
 // section transition: https://www.w3schools.com/w3css/w3css_slideshow.asp
 
 let timer = 0; // set the timer to 75 seconds
+let intervalId = 0; // set the interval id to 0
+let score = 0; // set the score to 0
 
 let sectionIndex = 1; // set the section index to 1
 setSection(sectionIndex); // set the section to 1
+
+const answerKey = [3, 3, 4, 3, 4];
 
 const setSectionIndex = (n) => {
   // set the section index to n
@@ -29,14 +33,16 @@ function setSection(n) {
 const startGame = () => {
   // setTimer function will be called when the start button is clicked
 
-  setSectionIndex(2);
+  score = 0; // set the score to 0
 
-  timer = 75; // set the timer to 75 seconds
+  setSectionIndex(2); // switch to section 2
+
+  timer = 7; // set the timer to 75 seconds
 
   // setTimer will initially set the timer to 75 seconds
   document.getElementById("time").innerHTML = timer;
 
-  let intervalId = window.setInterval(() => {
+  intervalId = window.setInterval(() => {
     // This will be called every second
 
     timer--; // decrement the timer by 1
@@ -52,19 +58,43 @@ const startGame = () => {
         // delay for a fraction of a second to ensure the timer is 0
 
         alert("Time is up!"); // show an alert
-        setSectionIndex(1);
+        document.getElementById(
+          "score"
+        ).innerHTML = `Your final score is: ${score}`; // update the score on the page
+        setSectionIndex(7);
       }, 10);
     }
   }, 1000);
 };
 
-const question1Check = (response) => {
-  // Check question #1 and update the score
-  // then move to question #2
+const checkAnswer = (response) => {
+  // Check question and update the score
+  // then move to next question
+
+  var answer = document.getElementById("answerResponse");
+
+  if (response.answer === answerKey[response.question - 1]) {
+    answer.textContent = "Correct!";
+    score++;
+  } else {
+    answer.textContent = "Wrong!";
+    timer -= 10;
+  }
+
+  if (response.question === 5) {
+    document.getElementById(
+      "score"
+    ).innerHTML = `Your final score is: ${score}`; // update the score on the page
+    window.clearInterval(intervalId); // stop the timer
+  }
+
+  // because the sections are indexed starting at 1, we need to add 2
+  // to the response.question number to get the next section
+  setSectionIndex(response.question + 2); // move to next question
 
   setTimeout(() => {
-    // set a delay before moving to the next question
-    setSectionIndex(3); // move to question #2
+    // set a delay before clearing the answer response
+    answer.textContent = ""; // clear the answer response
   }, 2000);
 };
 

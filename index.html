@@ -13,7 +13,7 @@
     <main>
       <div class="container">
         <section class="slide" id="start">
-          <h1>Coding Quiz Challenge</h1>
+          <h2>Coding Quiz Challenge</h2>
           <p>
             Try to answer the following code-related questions within the time
             limit. Keep in mind that incorrect answers will penalize your
@@ -24,22 +24,108 @@
         <section class="slide" id="questions">
           <h1>Commonly used data types DO not inlcude:</h1>
           <div id="buttons">
-            <button id="answer1" onclick="question1Check(1)">1. strings</button>
-            <button id="answer2" onclick="question1Check(2)">2. booleans</button>
-            <button id="answer3" onclick="question1Check(3)">3. alerts</button>
-            <button id="answer4" onclick="question1Check(4)">4. numbers</button>
+            <button onclick="checkAnswer({question:1, answer:1})">
+              1. strings
+            </button>
+            <button onclick="checkAnswer({question:1, answer:2})">
+              2. booleans
+            </button>
+            <button onclick="checkAnswer({question:1, answer:3})">
+              3. alerts
+            </button>
+            <button onclick="checkAnswer({question:1, answer:4})">
+              4. numbers
+            </button>
           </div>
         </section>
         <section class="slide" id="questions">
-          <h1>Blah:</h1>
+          <h2>
+            The condition in an if / else statemet is inclosed with an
+            _________.
+          </h2>
           <div id="buttons">
-            <button id="answer1" onclick="question1Check(1)">1. strings</button>
-            <button id="answer2" onclick="question1Check(2)">2. booleans</button>
-            <button id="answer3" onclick="question1Check(3)">3. alerts</button>
-            <button id="answer4" onclick="question1Check(4)">4. numbers</button>
+            <button onclick="checkAnswer({question:2, answer:1})">
+              1. quotes
+            </button>
+            <button onclick="checkAnswer({question:2, answer:2})">
+              2. currly brackets
+            </button>
+            <button onclick="checkAnswer({question:2, answer:3})">
+              3. parentheses
+            </button>
+            <button onclick="checkAnswer({question:2, answer:4})">
+              4. square brackets
+            </button>
           </div>
         </section>
+        <section class="slide" id="questions">
+          <h2>Arrays in JavaScript can be used to store _________.</h2>
+          <div id="buttons">
+            <button onclick="checkAnswer({question:3, answer:1})">
+              1. numbers and strings
+            </button>
+            <button onclick="checkAnswer({question:3, answer:2})">
+              2. other arrays
+            </button>
+            <button onclick="checkAnswer({question:3, answer:3})">
+              3. booleans
+            </button>
+            <button onclick="checkAnswer({question:3, answer:4})">
+              4. all of the above
+            </button>
+          </div>
+        </section>
+        <section class="slide" id="questions">
+          <h2>
+            String values must be enclosed within _________ when being assigned
+            to variables.
+          </h2>
+          <div id="buttons">
+            <button onclick="checkAnswer({question:4, answer:1})">
+              1. commas
+            </button>
+            <button onclick="checkAnswer({question:4, answer:2})">
+              2. currly brackets
+            </button>
+            <button onclick="checkAnswer({question:4, answer:3})">
+              3. quotes
+            </button>
+            <button onclick="checkAnswer({question:4, answer:4})">
+              4. aparentheses
+            </button>
+          </div>
+        </section>
+        <section class="slide" id="questions">
+          <h2>
+            A very useful tool used during development and debugging for
+            printing content to the debugger is:
+          </h2>
+          <div id="buttons">
+            <button onclick="checkAnswer({question:5, answer:1})">
+              1. JavaScript
+            </button>
+            <button onclick="checkAnswer({question:5, answer:2})">
+              2. terminal/bash
+            </button>
+            <button onclick="checkAnswer({question:5, answer:3})">
+              3. for loops
+            </button>
+            <button onclick="checkAnswer({question:5, answer:4})">
+              4. console.log
+            </button>
+          </div>
+        </section>
+        <section class="slide" id="end">
+          <h2>All done!</h2>
+          <p id="score" />
+          <form>
+            <label for="initials">Enter initials: </label>
+            <input type="text" id="initials" />
+            <button type="submit">Submit</button>
+          </form>
+        </section>
       </div>
+      <div class="answer" id="answerResponse" />
     </main>
     <script src="./assets/script.js"></script>
   </body>
