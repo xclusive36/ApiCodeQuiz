@@ -10,4 +10,5 @@ The highscores are saved to Local storage when added, they are grabbed and sorte
 The web application utilizes addEventListener, setInterval, getElementById, and setTimeout
 
 ![Screenshot](./screen.png)
+
 [Link to working example](https://xclusive36.github.io/ApiCodeQuiz/)
