@@ -32,7 +32,7 @@ const setSection = (n) => {
 setSection(sectionIndex); // set the section to 1
 
 const startGame = () => {
-  // setTimer function will be called when the start button is clicked
+  // This will be called when the start button is clicked
 
   score = 0; // set the score to 0
 
@@ -43,6 +43,7 @@ const startGame = () => {
   // setTimer will initially set the timer to 75 seconds
   document.getElementById("time").innerHTML = timer;
 
+  // setTimer will start the timer
   intervalId = window.setInterval(() => {
     // This will be called every second
 
