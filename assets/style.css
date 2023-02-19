@@ -1,8 +1,6 @@
 :root {
-  --nav-color: #ffffff;
-  --nav-background-color: #31343d;
-  --avatar-background-color: #b9c6ae;
-  --work-background-color: #f3f3f3;
+  --color: #31343d;
+  --background-color: #999999;
 }
 
 body {
@@ -40,13 +38,13 @@ section {
 section h2 {
   font-size: 1.5em;
   font-weight: 600;
-  color: #31343d;
+  color: var(--color);
 }
 
 section p {
   font-size: 1em;
   font-weight: 400;
-  color: #31343d;
+  color: var(--color);
 }
 
 button {
@@ -73,9 +71,9 @@ button {
 }
 
 .answer {
-  color: #999999;
+  color: var(--background-color);
   font-size: 1.5em;
-  border-top: 1px solid #999999;
+  border-top: 1px solid var(--background-color);
   margin-top: 1em;
   padding: 0.5em;
   width: 535px;
@@ -83,7 +81,7 @@ button {
 }
 
 .high-score-output {
-  background-color: #999999;
+  background-color: var(--background-color);
   padding: 5px;
 }
 
