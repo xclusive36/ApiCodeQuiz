@@ -38,7 +38,7 @@ const startGame = () => {
 
   setSectionIndex(2); // switch to section 2
 
-  timer = 7; // set the timer to 75 seconds
+  timer = 75; // set the timer to 75 seconds
 
   // setTimer will initially set the timer to 75 seconds
   document.getElementById("time").innerHTML = timer;
@@ -81,10 +81,12 @@ const checkAnswer = (response) => {
     answer.textContent = "Wrong!"; // show the wrong response
 
     if (timer > 10) {
-      console.log("timer is greater than 10");
       timer -= 10; // subtract 10 from the timer
     } else {
       timer = 1; // otherwise set the timer to 1 so the game will end naturally
+      setTimeout(() => {
+        // just wait a second to ensure the timer is 0
+      }, 1000);
     }
   }
 
@@ -132,7 +134,7 @@ const setScore = (event) => {
   const initials = document.getElementById("initials").value; // get the initials from the form
   const newScore = {
     // create a new score object
-    initials: initials,
+    initials: initials.toUpperCase(),
     score: score,
   };
 
