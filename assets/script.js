@@ -5,9 +5,8 @@ let intervalId = 0; // set the interval id to 0
 let score = 0; // set the score to 0
 
 let sectionIndex = 1; // set the section index to 1
-setSection(sectionIndex); // set the section to 1
-
 const answerKey = [3, 3, 4, 3, 4];
+let scoresArray = JSON.parse(localStorage.getItem("scores")) || []; // get the scores from local storage
 
 const setSectionIndex = (n) => {
   // set the section index to n
@@ -15,7 +14,7 @@ const setSectionIndex = (n) => {
   setSection(sectionIndex);
 };
 
-function setSection(n) {
+const setSection = (n) => {
   var i;
   var x = document.getElementsByClassName("slide");
   if (n > x.length) {
@@ -28,7 +27,9 @@ function setSection(n) {
     x[i].style.display = "none";
   }
   x[sectionIndex - 1].style.display = "block";
-}
+};
+
+setSection(sectionIndex); // set the section to 1
 
 const startGame = () => {
   // setTimer function will be called when the start button is clicked
@@ -71,14 +72,20 @@ const checkAnswer = (response) => {
   // Check question and update the score
   // then move to next question
 
-  var answer = document.getElementById("answerResponse");
+  var answer = document.getElementById("answerResponse"); // get the answer response element
 
   if (response.answer === answerKey[response.question - 1]) {
-    answer.textContent = "Correct!";
-    score++;
+    answer.textContent = "Correct!"; // show the correct response
+    score++; // increment the score by 1
   } else {
-    answer.textContent = "Wrong!";
-    timer -= 10;
+    answer.textContent = "Wrong!"; // show the wrong response
+
+    if (timer > 10) {
+      console.log("timer is greater than 10");
+      timer -= 10; // subtract 10 from the timer
+    } else {
+      timer = 1; // otherwise set the timer to 1 so the game will end naturally
+    }
   }
 
   if (response.question === 5) {
@@ -96,6 +103,60 @@ const checkAnswer = (response) => {
     // set a delay before clearing the answer response
     answer.textContent = ""; // clear the answer response
   }, 2000);
+};
+
+const showScores = () => {
+  // show the scores
+
+  let highScoreOutput = ""; // set the high score output to an empty string
+
+  scoresArray.sort((a, b) => {
+    // sort the scores array
+    return b.score - a.score; // sort the scores array
+  });
+
+  scoresArray.forEach((highScore, index) => {
+    // loop through the scores array
+    highScoreOutput += `<div class="high-score-output">${index + 1}. ${
+      highScore.initials
+    } - ${highScore.score}</div>`; // add the score to the high score output
+  }); // loop through the scores array
+
+  document.getElementById("highscores").innerHTML = highScoreOutput; // set high scores to the dom
+
+  setSectionIndex(8); // move to scores section
+};
+
+const setScore = (event) => {
+  event.preventDefault(); // prevent the form from submitting
+  const initials = document.getElementById("initials").value; // get the initials from the form
+  const newScore = {
+    // create a new score object
+    initials: initials,
+    score: score,
+  };
+
+  scoresArray.push(newScore); // add the score to the array
+
+  localStorage.setItem("scores", JSON.stringify(scoresArray)); // save the score to local storage
+
+  showScores(); // show the scores
+};
+
+const goBack = () => {
+  timer = 0; // set the timer to 0
+  score = 0; // set the score to 0
+
+  // update the timer on the page
+  document.getElementById("time").innerHTML = timer;
+
+  setSectionIndex(1); // move to start section
+};
+
+const clearScores = () => {
+  scoresArray = []; // clear the scores array
+  localStorage.removeItem("scores"); // remove the scores from local storage
+  document.getElementById("highscores").innerHTML = "&nbsp;"; // set high scores to the dom
 };
 
 // This will be called when the start button is clicked

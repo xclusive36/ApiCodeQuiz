@@ -6,8 +6,7 @@
   </head>
   <body>
     <header>
-      <a href="#" class="header-link">View Highscores</a>
-      <!-- <nav>Time: 75</nav> -->
+      <a href="#" class="header-link" onclick="showScores()">View Highscores</a>
       <nav id="time">Time: 0</nav>
     </header>
     <main>
@@ -118,11 +117,17 @@
         <section class="slide" id="end">
           <h2>All done!</h2>
           <p id="score" />
-          <form>
+          <form onsubmit="setScore(event)">
             <label for="initials">Enter initials: </label>
             <input type="text" id="initials" />
             <button type="submit">Submit</button>
           </form>
+        </section>
+        <section class="slide" id="scores">
+          <h2>Highscores</h2>
+          <div id="highscores">&nbsp;</div>
+          <button id="goBack" onclick="goBack()">Go Back</button>
+          <button id="clear" onclick="clearScores()">Clear Highscores</button>
         </section>
       </div>
       <div class="answer" id="answerResponse" />

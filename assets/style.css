@@ -47,8 +47,6 @@ section p {
   font-size: 1em;
   font-weight: 400;
   color: #31343d;
-  margin: 1em;
-  text-align: center;
 }
 
 button {
@@ -84,6 +82,13 @@ button {
   margin: auto;
 }
 
-#end {
-  text-align: left;
+.high-score-output {
+  background-color: #999999;
+  padding: 3px;
+  margin: 3px;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
 }
