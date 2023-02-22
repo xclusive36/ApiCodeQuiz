@@ -12,3 +12,7 @@ The web application utilizes addEventListener, setInterval, getElementById, and 
 ![Screenshot](./screen.png)
 
 [Link to working example](https://xclusive36.github.io/ApiCodeQuiz/)
+
+Section transition: from https://www.w3schools.com/w3css/w3css_slideshow.asp
+./assets/script.js
+./index.html
